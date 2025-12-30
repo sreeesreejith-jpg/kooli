@@ -16,13 +16,13 @@
         {
             "src": "app-icon.png",
             "sizes": "1024x1024",
-            "type": "image/jpeg",
+            "type": "image/png",
             "purpose": "any"
         },
         {
             "src": "app-icon.png",
             "sizes": "1024x1024",
-            "type": "image/jpeg",
+            "type": "image/png",
             "purpose": "maskable"
         }
     ],
@@ -30,14 +30,14 @@
         {
             "src": "screenshot.png",
             "sizes": "1024x1024",
-            "type": "image/jpeg",
+            "type": "image/png",
             "form_factor": "wide",
             "label": "App Dashboard"
         },
         {
             "src": "screenshot.png",
             "sizes": "1024x1024",
-            "type": "image/jpeg",
+            "type": "image/png",
             "form_factor": "narrow",
             "label": "App Dashboard"
         }
