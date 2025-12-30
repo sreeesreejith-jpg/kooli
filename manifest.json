@@ -15,35 +15,29 @@
     "icons": [
         {
             "src": "app-icon.png",
-            "sizes": "192x192",
-            "type": "image/png",
+            "sizes": "1024x1024",
+            "type": "image/jpeg",
             "purpose": "any"
         },
         {
             "src": "app-icon.png",
-            "sizes": "512x512",
-            "type": "image/png",
-            "purpose": "any"
-        },
-        {
-            "src": "app-icon.png",
-            "sizes": "512x512",
-            "type": "image/png",
+            "sizes": "1024x1024",
+            "type": "image/jpeg",
             "purpose": "maskable"
         }
     ],
     "screenshots": [
         {
             "src": "screenshot.png",
-            "sizes": "640x640",
-            "type": "image/png",
+            "sizes": "1024x1024",
+            "type": "image/jpeg",
             "form_factor": "wide",
             "label": "App Dashboard"
         },
         {
             "src": "screenshot.png",
-            "sizes": "640x640",
-            "type": "image/png",
+            "sizes": "1024x1024",
+            "type": "image/jpeg",
             "form_factor": "narrow",
             "label": "App Dashboard"
         }
