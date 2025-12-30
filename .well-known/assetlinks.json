@@ -2,7 +2,7 @@
   "relation": ["delegate_permission/common.handle_all_urls"],
   "target": {
     "namespace": "android_app",
-    "package_name": "sreejith.first.app",
+    "package_name": "io.github.sreeesreejith_jpg.twa",
     "sha256_cert_fingerprints": ["37:62:78:59:9E:52:32:DA:F3:D8:0F:E3:42:A7:5C:84:D9:7B:0A:FB:3A:B3:AF:E4:BC:42:22:24:4A:47:42:AC"]
   }
 }]
