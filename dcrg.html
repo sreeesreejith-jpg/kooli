@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kerala Pension & DCRG Calculator</title>
+    <meta name="description"
+        content="Calculate Kerala Government Pension and DCRG with this easy-to-use, mobile-friendly calculator. Features instant results and accurate government formulas.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2563eb">
+    <link rel="apple-touch-icon" href="icons/icon-512.png">
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./service-worker.js');
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Pension & DCRG Calculator</h1>
+            <p>Kerala Government Employees</p>
+        </header>
+
+        <main>
+            <!-- Section 1: Inputs -->
+            <section class="card" id="input-section">
+                <h2>Service Details</h2>
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label for="basicPay">Basic Pay (BP)</label>
+                        <div class="input-wrapper">
+                            <span class="currency-prefix">₹</span>
+                            <input type="number" id="basicPay" placeholder="0" min="0" step="100">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="daPercentage">DA Percentage (DA%)</label>
+                        <div class="input-wrapper">
+                            <input type="number" id="daPercentage" value="42" min="0" step="1">
+                            <span class="currency-suffix">%</span>
+                        </div>
+                    </div>
+
+                    <div class="input-group full-width" style="display: none;">
+                        <label for="avgEmoluments">Average Emoluments</label>
+                        <div class="input-wrapper readonly">
+                            <span class="currency-prefix">₹</span>
+                            <input type="text" id="avgEmoluments" readonly placeholder="0">
+                            <small class="helper-text">Calculated: BP + (BP × DA%)</small>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="serviceYears">Completed Years of Service</label>
+                        <div class="input-wrapper dropdown-wrapper">
+                            <input type="number" id="serviceYears" list="years-list" min="10" max="35"
+                                placeholder="10-35">
+                            <datalist id="years-list">
+                                <option value="10"></option>
+                                <option value="11"></option>
+                                <option value="12"></option>
+                                <option value="13"></option>
+                                <option value="14"></option>
+                                <option value="15"></option>
+                                <option value="16"></option>
+                                <option value="17"></option>
+                                <option value="18"></option>
+                                <option value="19"></option>
+                                <option value="20"></option>
+                                <option value="21"></option>
+                                <option value="22"></option>
+                                <option value="23"></option>
+                                <option value="24"></option>
+                                <option value="25"></option>
+                                <option value="26"></option>
+                                <option value="27"></option>
+                                <option value="28"></option>
+                                <option value="29"></option>
+                                <option value="30"></option>
+                                <option value="31"></option>
+                                <option value="32"></option>
+                                <option value="33"></option>
+                                <option value="34"></option>
+                                <option value="35"></option>
+                            </datalist>
+                        </div>
+                        <small class="helper-text">Min: 10, Max: 35 Years</small>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Pension Calculation -->
+            <section class="card result-card" id="pension-section">
+                <h2>Pension Details</h2>
+                <div class="result-grid">
+                    <div class="result-item highlight">
+                        <span class="label">Monthly Pension</span>
+                        <span class="value" id="pensionAmount">₹ 0</span>
+                    </div>
+                    <div class="result-divider"></div>
+                    <div class="result-item">
+                        <span class="label">Commutation (40%)</span>
+                        <span class="value secondary" id="commutationAmount">₹ 0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">Balance Pension</span>
+                        <span class="value secondary" id="balancePension">₹ 0</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: DCRG Calculation -->
+            <section class="card result-card" id="dcrg-section">
+                <h2>DCRG Calculation</h2>
+                <div class="result-grid">
+                    <div class="result-item highlight accent">
+                        <span class="label">DCRG Amount</span>
+                        <span class="value" id="dcrgAmount">₹ 0</span>
+                    </div>
+                    <small class="info-text">* Max Cap: ₹16,00,000 | Max Weightage: 16.5</small>
+                </div>
+            </section>
+
+            <!-- Section 5: Summary -->
+            <section class="card summary-card">
+                <h2>Total Benefits Summary</h2>
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <div class="icon-box">💰</div>
+                        <div class="summary-content">
+                            <span class="label">Total Lump Sum Benefit</span>
+                            <span class="value large" id="totalBenefits">₹ 0</span>
+                            <small>(Commutation + DCRG)</small>
+                        </div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="icon-box">📅</div>
+                        <div class="summary-content">
+                            <span class="label">Net Monthly Pension</span>
+                            <span class="value large" id="netMonthlyPension">₹ 0</span>
+                            <small>(After Commutation)</small>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Developed by Sreejith K Appukuttan</p>
+            <p>&copy; 2025 Kerala Pension Calculator. All calculations are indicative.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
